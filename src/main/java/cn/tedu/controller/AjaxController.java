@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/ajax/")
 public class AjaxController {
     @RequestMapping("doAjaxGetRequest")
-    @ResponseBody//将响应串
+    @ResponseBody//将响应的内容以串的形式进行返回
     public String doAjaxGetRequest(String key){
         return "query data by key="+key;
     }
