@@ -10,7 +10,7 @@
         <button onclick="doAjaxPostRequest()">doAjaxPost</button>
     </div>
     <div id="result"></div>
-    <script type="text/javascript" src="../js/ajaxfk.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript">
         function doAjaxPostRequest() {
             var url="/ajax/doAjaxPostRequest";
@@ -18,7 +18,7 @@
             /*
            * 发送ajax请求
            * */
-            Ajax.doAjaxPost(url,params,function (result) {
+            $.post(url,params,function (result) {
                 alert(result);
             })
         }
@@ -36,7 +36,7 @@
             /*
            * 发送ajax请求
            * */
-            Ajax.doAjaxGet(url,params,function (result) {
+            $.get(url,params,function (result) {
                 var obj=document.getElementById("result");
                 obj.innerHTML=result;
             });

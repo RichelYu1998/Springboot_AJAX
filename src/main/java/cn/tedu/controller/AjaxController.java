@@ -18,4 +18,8 @@ public class AjaxController {
     public String doAjaxPostRequest(String key,String value){
         return "save data ["+key+","+value+"]";
     }
+    @RequestMapping("doActivityUI")
+    public String doActivityUI(){
+        return "ajax-01";
+    }
 }
