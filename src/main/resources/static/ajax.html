@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+</head>
+<body>
+    <div>
+        <button onclick="doAjaxGetRequest()">doAjaxGet</button>
+    </div>
+    <div id="result"></div>
+    <script type="text/javascript">
+        function doAjaxGetRequest() {
+            /*
+            * 定义请求url
+            * */
+            var url="/ajax/doAjaxGetRequest";
+            /*
+            * 定义请求参数
+            * */
+            var params="Key=A";
+            doAjaxGet(url,params,function (result) {
+                var div=document.getElementById("result");
+                div.innerHTML=result;
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        function doAjaxGet(url,params,callback) {
+            /*
+            * 1.创建异步请求
+            * */
+            var xhr = new XMLHttpRequest();
+            /*
+            * 2.设置监听
+            * */
+            xhr.onreadystatechange=function () {
+                if(xhr.readyState==4&&xhr.status==200){
+                    callback(xhr.responseText);
+                }
+            }
+            /*
+            * 3.创建连接
+            * */
+            xhr.open("GET",url+"?"+params,true);
+            /*
+            * 4.发送请求
+            * */
+            xhr.send(null);
+        }
+    </script>
+</body>
+</html>
